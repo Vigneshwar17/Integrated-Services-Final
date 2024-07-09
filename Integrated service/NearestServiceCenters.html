@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest Vehicle Service Centers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        th {
+            background-color: #333;
+            color: #bb86fc;
+        }
+        caption {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #bb86fc;
+        }
+        .service-centers-table th, .service-centers-table td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
+        .service-centers-table th {
+            background-color: #333;
+            color: #bb86fc;
+        }
+        .service-centers-table tr:nth-child(even) {
+            background-color: #1f1f1f;
+        }
+        .service-centers-table tr:nth-child(odd) {
+            background-color: #2a2a2a;
+        }
+        .service-centers-table tr:hover {
+            background-color: #373737;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nearest Vehicle Service Centers</h1>
+
+    <table class="service-centers-table">
+        <caption>Chennai</caption>
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Workshop Name</th>
+                <th>Address</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>K S R Motors</td>
+                <td>Plot No 13, Lakshmi Nagar, Nedunkundram, Vandalur Post, Chennai</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Murugan Automobiles</td>
+                <td>Plot No 23, Kuberan Nagar, Extension Ram, Nagar, 8th Main Road, Maddipakkam, Chennai - 91</td>
+                <td>Upholstery</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Kanagavel Motors</td>
+                <td>1, Parthasarathi Street, Triplicane, Chennai - 5</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>K S R Motors</td>
+                <td>Plot No 13, Lakshmi Nagar, Nedunkundram, Vandalur Post, Chennai - 48</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kanagavel Motors</td>
+                <td>1, Parthasarathi Street, Triplicane, Chennai - 5</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Chevro Fabrication Works</td>
+                <td>No 1, Near Royal Club, Mel Ayyanambakkam, Koladi Road, Chennai - 600095</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Murugan Automobiles</td>
+                <td>Plot No.23, Kuberan Nagar, Extension Ram Nagar, 8th Main Road, Maddipakkam, Chennai - 91</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Jayasakthi Body Works</td>
+                <td>No.1/1A, Thandurai Main Road, Banavedu Thottam, Poonamallee, Chennai - 600056</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Oshin Auto Electrical A/C Work</td>
+                <td>No 2, Othavadi Street, Koyambedu, Chennai - 107</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>KRG Motors</td>
+                <td>No 6, Sri Senthil Velaven Nagar, Redhills, Sothpakkam, Chennai - 52</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Umamaheshwari Auto Garage</td>
+                <td>No.33, Venkatanarayana Road, Shopping Complex, Nandanam, Chennai - 35</td>
+                <td>Body</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="service-centers-table">
+        <caption>Cuddalore</caption>
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Workshop Name</th>
+                <th>Address</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>12</td>
+                <td>OM Sakthi Engineering Works</td>
+                <td>D.S.N Nagar, Nellikuppam Main Road, Cuddalore</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Sri Sai Motors</td>
+                <td>No 65, Neyveli Main Road, Panruti, Cuddalore - 607106</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Goodwill Motor Works</td>
+                <td>No 25, Kamarajar Salai, Manjakuppam, Cuddalore - 607001</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Sri Sakthi Motors</td>
+                <td>No 10, Thirupathiripuliyur, Cuddalore - 607002</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Sri Ganesh Automobiles</td>
+                <td>No 3, Tirupapuliyur, Cuddalore - 607002</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>OM Murugan Motors</td>
+                <td>No 45, Nellikuppam Road, Cuddalore - 607003</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Sri Sakthi Motor Works</td>
+                <td>No 30, Nellikuppam Road, Cuddalore - 607004</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Vijay Motors</td>
+                <td>No 50, Kamarajar Salai, Manjakuppam, Cuddalore - 607005</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Sri Sai Auto Works</td>
+                <td>No 35, Neyveli Main Road, Panruti, Cuddalore - 607106</td>
+                <td>Electrical</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="service-centers-table">
+        <caption>Dharmapuri</caption>
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Workshop Name</th>
+                <th>Address</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>21</td>
+                <td>Sri Vaari Motors</td>
+                <td>No 15, Kaveri Nagar, Dharmapuri</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Maruti Motors</td>
+                <td>No 25, Salem Main Road, Dharmapuri - 636701</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Sri Sakthi Motors</td>
+                <td>No 10, Gandhi Nagar, Dharmapuri - 636705</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Raja Automobiles</td>
+                <td>No 8, Salem Main Road, Dharmapuri - 636701</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Maruthi Motors</td>
+                <td>No 2, Dharmapuri Main Road, Denkanikottai</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Sri Balaji Motors</td>
+                <td>No 4, Sathyamangalam, Dharmapuri</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Prabhu Auto Works</td>
+                <td>No 6, Saravanan Nagar, Dharmapuri</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Vijay Motors</td>
+                <td>No 12, Maruthi Nagar, Dharmapuri</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Raja Auto Garage</td>
+                <td>No 9, Denkanikottai Main Road, Dharmapuri</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Universal Auto Works</td>
+                <td>No 1, Salem Main Road, Dharmapuri - 636701</td>
+                <td>Body</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

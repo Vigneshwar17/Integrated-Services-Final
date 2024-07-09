@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        h1, h2, h3 {
+            color: #bb86fc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ffffff;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #bb86fc;
+        }
+        tr:nth-child(even) {
+            background-color: #1f1f1f;
+        }
+        tr:nth-child(odd) {
+            background-color: #2a2a2a;
+        }
+        tr:hover {
+            background-color: #373737;
+        }
+        caption {
+            color: #bb86fc;
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Health Insurance Policies and Cost Details</h1>
+    <table>
+        <caption>Types of Health Insurance Policies</caption>
+        <thead>
+            <tr>
+                <th>S.no</th>
+                <th>Types of Health Insurance Policies</th>
+                <th>Suitable for</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody id="insurance-table">
+            <!-- Data will be populated here by JavaScript -->
+        </tbody>
+        </table>
+    <script>
+        const insuranceData = [
+            {sno: 1, type: "Individual Health Insurance Plan", suitable: "Single/individual person"},
+            {sno: 2, type: "Family Floater Health Insurance Plan", suitable: "Family, including spouse, children, and parents"},
+            {sno: 3, type: "Senior Citizen Health Insurance Plan", suitable: "People above 65 years of age"},
+            {sno: 4, type: "Critical Illness Insurance Plan", suitable: "Financial protection against expensive treatment for critical illness"},
+            {sno: 5, type: "Group Health Insurance Plan", suitable: "Group of people, such as a company’s employees"},
+            {sno: 6, type: "Top-up Health Insurance Plan", suitable: "Those looking for additional medical coverage up to a certain amount"},
+            {sno: 7, type: "Personal Accident Cover", suitable: "Those looking to insure partial/total disability and death due to an accident"},
+            {sno: 8, type: "Maternity Health Insurance Plan", suitable: "Covering expenses incurred in the prenatal stage, delivery and post-natal stage"},
+            {sno: 9, type: "Mediclaim Insurance Plan", suitable: "In-patient expenses"},
+            {sno: 10, type: "Disease-specific (Corona Kavach, etc.)", suitable: "Those seeking coverage for a specific health condition"},
+            {sno: 11, type: "Hospital Daily Cash", suitable: "Daily cash to manage expenses as long as the insured is hospitalised"},
+            {sno: 12, type: "Unit Linked Insurance Plan", suitable: "Insurance and investment benefits both together"}
+        ];
+
+        function getRandomCost() {
+            return `₹${(Math.random() * 50000 + 10000).toFixed(2)}`;
+        }
+
+        const insuranceTable = document.getElementById('insurance-table');
+        insuranceData.forEach((insurance) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${insurance.sno}</td>
+                <td>${insurance.type}</td>
+                <td>${insurance.suitable}</td>
+                <td>${getRandomCost()}</td>
+            `;
+            insuranceTable.appendChild(row);
+        });
+    </script>
+<br>
+<body>
+    <h1>Required Documents for Health Insurance</h1>
+    <div class="document-list">
+        <ol>
+            <li>Proof of Identity (Aadhar Card, PAN Card, Passport, etc.)</li>
+            <li>Proof of Address (Aadhar Card, Passport, Utility Bills, etc.)</li>
+            <li>Age Proof (Birth Certificate, School Certificate, Passport, etc.)</li>
+            <li>Passport-sized Photographs</li>
+            <li>Medical Reports (if any)</li>
+            <li>Proof of Income (Salary Slip, IT Returns, etc.)</li>
+            <li>Bank Statement or Passbook Copy</li>
+            <li>Proposal Form (filled and signed)</li>
+            <li>Employer's Certificate (for group insurance plans)</li>
+            <li>Marriage Certificate (for family floater plans)</li>
+            <li>Child's Birth Certificate (for family floater plans)</li>
+            <li>Previous Policy Documents (for renewal or portability)</li>
+        </ol>
+    </div>
+</body>   
+</body>
+</html>

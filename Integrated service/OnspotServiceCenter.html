@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-spot Vehicle Service Centers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        th {
+            background-color: #333;
+            color: #bb86fc;
+        }
+        caption {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #bb86fc;
+        }
+        .service-centers-table th, .service-centers-table td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
+        .service-centers-table th {
+            background-color: #333;
+            color: #bb86fc;
+        }
+        .service-centers-table tr:nth-child(even) {
+            background-color: #1f1f1f;
+        }
+        .service-centers-table tr:nth-child(odd) {
+            background-color: #2a2a2a;
+        }
+        .service-centers-table tr:hover {
+            background-color: #373737;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="service-centers-table">
+        <caption>On-spot Vehicle Service Centers in Chennai</caption>
+        <thead>
+            <tr>
+                <th>Shop Name</th>
+                <th>Address</th>
+                <th>Contact No</th>
+                <th>Time Considered for Service</th>
+            </tr>
+        </thead>
+        <tbody id="service-centers-body">
+            <!-- JavaScript will populate rows here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Array of service center data with shop name, address, and contact number
+        const serviceCenters = [
+            { name: "Petromin", address: "566/79, New Avadi Rd, Kilpauk, Chennai, Tamil Nadu 600010", contact: "086868 92000" },
+            { name: "Gurudev Škoda Showroom", address: "No AB13, 2nd Ave, Anna Nagar, Chennai, Tamil Nadu 600040", contact: "063791 23060" },
+            { name: "WORLD OF SERVICE", address: "B1, Radha Krishnan Nagar, World of Service, B2, T. Ponnambalam Salai, Kolapakkam, Chennai, Tamil Nadu 600128", contact: "087544 29046" },
+            { name: "Multi Brand Car Service Center", address: "No 56, 3rd Cross St, Kubera Nagar, Srinivasa Nagar, Velachery, Chennai, Tamil Nadu 600042", contact: "087524 87046" },
+            { name: "GoMechanic - Chennai Car Service Center", address: "275, Valluvar Kottam High Rd, Seetha Nagar, Nungambakkam, Chennai, Tamil Nadu 600034", contact: "083989 70970" },
+            { name: "MyTVS Car Garage", address: "B 5, Guindy Industrial Estate, SIDCO Industrial Estate, Guindy, Chennai, Tamil Nadu 600032", contact: "073582 02225" },
+            { name: "GoMechanic - Multiband Car Service Center", address: "10, Tilak St, Parthasarathi Puram, T. Nagar, Chennai, Tamil Nadu 600017", contact: "083989 70970" },
+            { name: "Tata Motors Cars Service Centre", address: "Plot No, 43, Greams Rd, opposite MRF Building, Thousand Lights East, Thousand Lights, Chennai, Tamil Nadu 600006", contact: "070452 14937" },
+            { name: "MCC Motors Car Service", address: "No 340, Toll Plaza, 1B, Porur Link Rd, near Porur - Vanagaram Main Road, Visalakshi Nagar, Vanagaram, Chennai, Adayalampattu, Tamil Nadu 600095", contact: "073730 66611" },
+            { name: "S Drive Multi Brand Car Service", address: "16, Arcot Rd, opp. AVM Studios Complex, Vadapalani, Chennai, Tamil Nadu 600026", contact: "096000 01341" },
+            { name: "Sai Xpress Motors", address: "86C, 86D, 8/86E, 2nd Main Rd, opposite to Hotel Ananda Veg Restaurant, Ambattur Industrial Estate, Chennai, Tamil Nadu 600058", contact: "097867 62233" },
+            { name: "The PitStop Car Care", address: "8, Noor Veerasamy Ln, Ponnangipuram, Nungambakkam, Chennai, Tamil Nadu 600034", contact: "073388 89801" },
+            { name: "Wagon Zone - The Best Car Service", address: "16, 8th St, Kuberan Nagar, Madipakkam, Chennai, Tamil Nadu 600091", contact: "098842 68855" },
+            { name: "Perfect AutoTech", address: "NO 5/3A, VALLUVAR SALAI, VICTORIA RANI AMMAL, ROAD, Ramapuram, Chennai, Tamil Nadu 600089", contact: "099627 82878" },
+            { name: "Saai DK Motors", address: "Kamaraj Nagar, Semmancheri, Chennai, Tamil Nadu 600119", contact: "093630 21105" },
+            { name: "APK MOTORS", address: "NO 4/16, KALSATHAMMAN KOIL STREET, Chellammal Nagar 2nd Main Rd, Kanu Nagar, Ramapuram, Chennai, Tamil Nadu 600089", contact: "098409 98749" },
+            { name: "CUURO MOTORS", address: "A 13, 3rd Phase, Guindy Industrial Estate, SIDCO Industrial Estate, Guindy, Chennai, Tamil Nadu 600032", contact: "073388 87977" },
+            { name: "New Classic Motors", address: "56, Tiruneermalai Main Rd, Sripuram, Chromepet, Chennai, Tamil Nadu 600044", contact: "083989 70970" },
+            { name: "Full Throttle Automotive", address: "Koyambedu, 1/44, Poonamallee High Rd, next to Palmshore hotel, Nerkundram, Chennai, Tamil Nadu 600107", contact: "099624 37373" },
+            { name: "RJKM Car care centre", address: "22, Agaram Main Rd., near barath university, Padamavathy Nagar, Yeswanth Nagar, Madambakkam, Chennai, Tamil Nadu 600126", contact: "078716 11650" }
+        ];
+
+        // Function to generate random time between 1 to 3 hours
+        function generateRandomTime() {
+            const hours = Math.floor(Math.random() * 3) + 1; // Random number between 1 and 3
+            return `${hours} hour${hours > 1 ? 's' : ''}`; // Pluralize "hour" if more than 1
+        }
+
+        // Function to generate the table rows dynamically
+        function generateTableRows() {
+            const tbody = document.getElementById('service-centers-body');
+            let rowsHtml = '';
+
+            serviceCenters.forEach(center => {
+                const randomTime = generateRandomTime();
+                rowsHtml += `
+                    <tr>
+                        <td>${center.name}</td>
+                        <td>${center.address}</td>
+                        <td>${center.contact}</td>
+                        <td>${randomTime}</td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = rowsHtml; // Inject rows into tbody
+        }
+
+        // Call the function to generate table rows when the page loads
+        window.onload = generateTableRows;
+    </script>
+
+</body>
+</html>
+
