@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Service Webpage</title>
+    <link rel="stylesheet" href="homeSTYLE.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Government Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Services</a>
+                <a href="pensiondetail.html">Pensioner Services</a>
+                <a href="ration.html">Ration and Voter Cards Services</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax Saving Recommendation</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Health</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">List Of Hospitals</a>
+                <a href="DiagnosticCenters.html">List of Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Elder and Nurse Care Centre</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+                <a href="Emergency.html">Emergency Centres</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centres</a>
+                <a href="OnspotServiceCenter.html">OnspotServiceCenter</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+
+    <div class="container">
+        <h1>Welcome to the Integrated Service Webpage</h1>
+        <p>Select a service from the navigation bar above to learn more.</p>
+    </div>    
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="img1.jpeg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img4.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img3.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img4.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img5.jpg">
+        </div>
+        <!-- Add more slides as needed -->
+    
+        <!-- Previous and Next buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    
+    <!-- Dots/bullets -->
+    <div style="text-align:center; margin-top: 10px;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <!-- Add more dots as needed -->
+    </div>
+    
+    <script>
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            // Increment slideIndex and reset if necessary
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            
+            // Hide all dots
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            
+            // Display current slide and dot
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            
+            // Change slide every 2 seconds
+            setTimeout(showSlides, 3000);
+        }
+    
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+    
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+    </script>
+    <br><br><br><br>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Welcome to the Integrated Service Webpage! Check out our latest updates and services below.
+        </div>
+    </div>
+
+    <div class="about-us">
+        <div class="text">
+            <h2>About Us</h2>
+            <p>We are committed to providing integrated and accessible services to the community. Our mission is to enhance the quality of life through comprehensive support and services in health, finance, transport, and various government schemes. Our dedicated team works tirelessly to ensure that every citizen has access to the resources they need.</p>
+        </div>
+        <div class="image">
+            <img src="img5.jpg" alt="About Us">
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Our Services</h1>
+    </div>  
+    <div class="card-container">
+        
+        <div class="card">
+            <img src="Child_prodection.jpg" alt="Anganwadi Services">
+            <h3>Anganwadi Services</h3>
+            <p>Anganwadi is a type of rural child care centre in India. They were started by the Indian government in 1975 as part of the Integrated Child Development Services program to combat child hunger and malnutrition. Anganwadi means "courtyard shelter" in Indian languages...</p>
+            <a href="sa.html"><button class="details-button">More Details</button></a>
+            <!-- <div class="card-footer">
+                <div class="footer-icon">
+                    <img src="ghost.jpg" alt="Anganwadi Icon">
+                </div> 
+                <div class="footer-text">
+                    <p>Anganwadi Service</p>
+                    <p>Started in 1975</p>
+                </div>
+            </div> -->
+        </div>
+        <div class="card">
+            <img src="Child_prodection.jpg" alt="Child Protection Services">
+            <h3>Child Protection Services</h3>
+            <p>The Integrated Child Protection Scheme (ICPS) is a centrally sponsored scheme aimed at building a protective environment for children in difficult circumstances, as well as other vulnerable children, through Government-Civil Society Partnership.</p>
+            <a href="cp.html"><button class="details-button">More Details</button></a>
+            
+        </div>
+        <div class="card">
+            <img src="adolescence.png" alt="Schemes For Adolescent Girls">
+            <h3>Schemes For Adolescent Girls</h3>
+            <p>This scheme has two components viz. Supplementary Nutrition Component and Non-Supplementary Nutrition Component. The State Government provides 50% financial assistance towards Supplementary Nutrition Component...</p>
+            <a href="ag.html"><button class="details-button">More Details</button></a>
+           
+        </div>
+
+        <div class="card">
+            <img src="Anganwadi.png" alt="Anganwadi Services">
+            <h3>Anganwadi Services</h3>
+            <p>Anganwadi is a type of rural child care centre in India. They were started by the Indian government in 1975 as part of the Integrated Child Development Services program to combat child hunger and malnutrition. Anganwadi means "courtyard shelter" in Indian languages...</p>
+            <a href="sa.html"><button class="details-button">More Details</button></a>
+        </div>
+        <div class="card">
+            <img src="Child_prodection.jpg" alt="Child Protection Services">
+            <h3>Child Protection Services</h3>
+            <p>The Integrated Child Protection Scheme (ICPS) is a centrally sponsored scheme aimed at building a protective environment for children in difficult circumstances, as well as other vulnerable children, through Government-Civil Society Partnership.</p>
+            <a href="cp.html"><button class="details-button">More Details</button></a>
+            
+        </div>
+        <div class="card">
+            <img src="adolescence.png" alt="Schemes For Adolescent Girls">
+            <h3>Schemes For Adolescent Girls</h3>
+            <p>This scheme has two components viz. Supplementary Nutrition Component and Non-Supplementary Nutrition Component. The State Government provides 50% financial assistance towards Supplementary Nutrition Component...</p>
+            <a href="ag.html"><button class="details-button">More Details</button></a>
+           
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+<br><br><br>
+
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Child Development Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Nutrition</a></li>
+                    <li><a href="#">Health</a></li>
+                    <li><a href="#">Poshan Abhiyaan</a></li>
+                    <li><a href="#">Anganwadi</a></li>
+                    <li><a href="#">Education</a></li>
+                    <li><a href="#">Training</a></li>
+                    <li><a href="#">Communication</a></li>
+                    <li><a href="#">Monitoring</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Visitor</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    No: 1 Dr. M.G.R Salai, Taramani, Chennai - 600 113<br>
+                    <a href="tel:+04424540146">(044) - 2454 0146 / 2454 1771 / 2454 0974 / 2454 0772</a><br>
+                    <a href="mailto:icds.tn@nic.gov.in">icds.tn@nic.gov.in</a><br>
+                    <a href="mailto:directornicds@gmail.com">directornicds@gmail.com</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- FontAwesome for icons -->
+    
+    
+    <!-- JavaScript for Slideshow -->
+   
+</body>
+</html>
