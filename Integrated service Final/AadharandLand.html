@@ -6,7 +6,8 @@
     <title>Aadhar Service Offices</title>
     <style>
         body {
-            background: linear-gradient(to right, #4a00e0, #8e2de2);  
+           background-color:#dbd2d2;
+    
             font-family: Arial, sans-serif;
             /*display: flex; 
             justify-content: center;
@@ -48,7 +49,8 @@
         }
 
         tbody tr:hover {
-            background:#282323;
+        background-color: #6b7272;
+    
             color: #ffffff; 
             transition: 1s;
             transform: translateY(-10px);
@@ -67,6 +69,7 @@
 
         #AADHAR {
             margin-left: 0;
+            margin-top: 75px;
             /* margin-top:1000px; */
         }
         .datetime {
@@ -76,23 +79,32 @@
 }
 /* Add any other necessary theme styles here */
 /* Navbar container */
+.datetime {
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-left: 50px;
+}
+/* Add any other necessary theme styles here */
+/* Navbar container */
 .navbar {
     display: flex;
     align-items: center;
+    margin-left:-100px ;
     background-color: #0b3c5d;
     padding: 0px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 15%;
-    margin-left:-50px;
+    position:absolute;
     margin-top: -10px;
 }
 
 /* Logo styling */
 .logo img {
-    height: 50px;
-    margin-right: 240px; /* Push the logo to the left */
+    height: 70px;
+    margin-left: 100px; /* Push the logo to the left */
+    padding: 10px;
+    
 }
+
 
 /* Dropdown container */
 .dropdown {
@@ -278,9 +290,14 @@ footer {
         <div class="logo">
             <img src="TN logo.png" alt="Government Logo">
         </div>
-        
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+      
         <div class="dropdown">
-            <button class="dropbtn">Home</button>
+            <a href="home.html"><button class="dropbtn">Home</button></a>
         </div>
         
         <div class="dropdown">
@@ -301,7 +318,7 @@ footer {
             </div>
         </div> 
         <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
+            <button class="dropbtn">Health Service(Chennai)</button>
             <div class="dropdown-content">
                 <a href="Hospitals.html">Hospitals</a>
                 <a href="DiagnosticCenters.html">Diagnostic Centre</a>

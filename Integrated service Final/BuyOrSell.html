@@ -6,14 +6,15 @@
     <title>Aadhar Service Offices</title>
     <style>
         body {
-            background: linear-gradient(to right, #4a00e0, #8e2de2);  
+            background-color: #dbd2d2  ;
             font-family: Arial, sans-serif;
             /*display: flex; 
             justify-content: center;
             align-items: center;  */ 
             height: 100vh;
             margin-left: 50px;
-            color: #a39a9a;
+            margin-right: 50px;
+            color: #1b1a1a;
             overflow-x: hidden;
         }
 
@@ -31,6 +32,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            
         }
 
         th, td {
@@ -43,12 +45,12 @@
             color: #ffffff;
             text-transform: uppercase;
         }
-        tbody tr:nth-child(even) {
+        /* tbody tr:nth-child(even) {
             background: #f2f2f2;
-        }
+        } */
 
         tbody tr:hover {
-            background:#282323;
+            background:#6b7272;
             color: #ffffff; 
             transition: 1s;
             transform: translateY(-10px);
@@ -72,27 +74,30 @@
         .datetime {
     font-size: 0.9em;
     color: #ffffff;
-    margin-left: 160px;
+    margin-left: 50px;
 }
 /* Add any other necessary theme styles here */
 /* Navbar container */
 .navbar {
     display: flex;
     align-items: center;
+    margin-left:-60px ;
     background-color: #0b3c5d;
     padding: 0px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 15%;
-    margin-left:-50px;
+    position:absolute;
     margin-top: -10px;
 }
 
 /* Logo styling */
 .logo img {
-    height: 50px;
-    margin-right: 240px; /* Push the logo to the left */
+    height: 70px;
+    margin-right: 60px;
+    margin-left: 20px; /* Push the logo to the left */
+    padding: 10px;
+    
 }
+
 
 /* Dropdown container */
 .dropdown {
@@ -158,9 +163,10 @@ footer {
     background-color: #4199A7; /* Blue background */
     color: white;
     font-family: Arial, sans-serif;
-    margin-left: -49px;
-    width:105%;
+    margin-left: -50px;
+    width:109%;
 }
+
 
 .footer-container {
     display: flex;
@@ -346,6 +352,7 @@ footer {
         
         
     </div>
+    <br><br><br><br>
     <table class="service-centers-table">
         <caption>Buying or Selling Vehicles Centers in Chennai</caption>
         <thead>
