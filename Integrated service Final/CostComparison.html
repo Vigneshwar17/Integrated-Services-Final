@@ -10,6 +10,7 @@
             font-family: Arial, sans-serif;
             height: 100vh;
             margin-left: 50px;
+            margin-right: 50px;
             color: #a39a9a;
             overflow-x: hidden;
         }
@@ -39,6 +40,9 @@
             color: #ffffff;
             text-transform: uppercase;
         }
+        tbody tr:nth-child(even) {
+            background: #e2e1e1;
+        } 
 
         tbody tr:hover {
             background: #6b7272;
@@ -64,13 +68,13 @@
         .datetime {
             font-size: 0.9em;
             color: #ffffff;
-            margin-left: 50px;
+            margin-left: 250px;
         }
 
         .navbar {
             display: flex;
             align-items: center;
-            margin-left: -100px;
+            margin-left: -80px;
             background-color: #0b3c5d;
             padding: 0px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -80,7 +84,8 @@
 
         .logo img {
             height: 70px;
-            margin-left: 100px;
+            margin-left: 60px;
+            margin-right: 120px;
             padding: 10px;
         }
 
@@ -341,6 +346,7 @@
             updateDateTime(); // Initial call to display date/time immediately
         </script>
     </div>
+    <br><br><br><br>
     <table class="car-model-table">
         <caption>Car Model Cost Comparison</caption>
         <thead>

@@ -1,1 +1,443 @@
-badri Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Saving Recommendations</title>
+    <style>
+     body {
+            font-family: 'Arial', sans-serif;
+            background: url('Fbg.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);  /* Dark overlay with 50% opacity */
+            z-index: 1;
+        }
+
+        h1, input[type="text"], button, #results {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        #results {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .datetime {
+            font-size: 0.9em;
+            color: #ffffff;
+            margin-left: auto;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #0b3c5d;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 3;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #C2CFD7;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: #0056b3;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+        }
+
+        footer {
+            background-color: #4199A7;
+            color: white;
+            font-family: Arial, sans-serif;
+            width: 100%;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f0f0f0;
+        }
+
+        .footer-section.contact address {
+            font-style: normal;
+            color: #ddd;
+        }
+
+        .footer-section.contact address a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section.contact address a:hover {
+            color: #fff;
+        }
+
+        .footer-section .branding .logo {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .footer-section .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-section .social-icons a {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .footer-bottom {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .footer-bottom a {
+            color: #0ff;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Govt.Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Service</a>
+                <a href="pensiondetail.html">Pensioner Service</a>
+                <a href="ration.html">Ration and VoterID Service</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax-Saving Recommender</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">HealthService(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">Hospitals</a>
+                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Nurse Care Details</a>
+                <a href="Emergency.html">Emergency Centres</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centre</a>
+                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+    <h1>Tax Saving Recommendations</h1>
+    <input type="text" id="search-input" placeholder="Search for tax saving tips...">
+    <button onclick="search()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        async function search() {
+            const query = document.getElementById('search-input').value;
+            const apiKey = 'AIzaSyAJj8QgIJOsZWOd5ZAaEV9NSgN0ZH2HmaI';  // Replace with your actual API key
+            const cx = '46153b005ab8d4f27';  // Replace with your actual Custom Search Engine ID
+            const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${apiKey}&cx=${cx}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.items) {
+                    displaySummary(data.items);
+                } else {
+                    displaySummary([]);
+                }
+            } catch (error) {
+                console.error('Error fetching the search results:', error);
+            }
+        }
+
+        function displaySummary(items) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            if (items.length === 0) {
+                resultsContainer.innerText = 'No results found.';
+                return;
+            }
+
+            // Filter and combine snippets into a concise summary
+            let summary = '';
+            const seenSnippets = new Set();
+            items.forEach(item => {
+                const snippet = item.snippet.replace(/<\/?b>/g, '');  // Remove <b> tags
+                if (!seenSnippets.has(snippet)) {
+                    summary += snippet + ' ';
+                    seenSnippets.add(snippet);
+                }
+            });
+
+            const summaryParagraph = document.createElement('div');
+            summaryParagraph.classList.add('result-item');
+            summaryParagraph.innerText = summary;
+
+            resultsContainer.appendChild(summaryParagraph);
+        }
+    </script>
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849 / +91 87784 39525</a><br>
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
